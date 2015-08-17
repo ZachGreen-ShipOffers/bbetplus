@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bbetplus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+  <div class="ui fixed inverted menu">
+    <div class="ui container">
+      <div href="#" class="header item">Shipments</div>
+      <a href="#" class="item">Dashboard</a>
+      <a href="#" class="item active">Orders</a>
+      <a href="#" class="item">Shipments</a>
+      <a href="#" class="item">Products</a>
+      <a href="#" class="item">Imports</a>
+      <a href="#" class="item">Tools</a>
+    </div>
+  </div>
+
+<%= yield %>
+
+</body>
+</html>

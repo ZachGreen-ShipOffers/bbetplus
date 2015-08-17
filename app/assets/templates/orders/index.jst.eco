@@ -1,0 +1,66 @@
+<h1>Orders</h1>
+<div class="ui cards four wide">
+  <% for o in @order.models: %>
+    <div class="ui card ">
+      <div class="content">
+        <div class="header"><%= o.get('first_name') %> <%= o.get('last_name') %></div>
+      </div>
+      <div class="content">
+        <p class=""><%= o.get('city') %>, <%= o.get('state') %> <%= o.get('postal_code') %> <%= o.get('country') %></p>
+      </div>
+      <button class="ui button edit" data-id="<%= o.get('id')%>">Edit</button>
+    </div>
+  <% end %>
+</div>
+
+<div class="ui modal" id="orderinfo">
+  <i class="fa fa-times"></i>
+  <div class="header">
+    Order Info
+  </div>
+  <div class="ui form">
+
+    <div class="fields">
+      <div class="field">
+        <label>Order Number</label>
+        <input type="text" placeholder="Order Number">
+      </div>
+      <div class="field">
+        <label>First name</label>
+        <input type="text" placeholder="First Name">
+      </div>
+      <div class="field">
+        <label>Last name</label>
+        <input type="text" placeholder="Last Name">
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field">
+        <label>Address 1</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="field">
+        <label>Address 2</label>
+        <input type="text" placeholder="">
+      </div>
+
+    </div>
+
+    <div class="fields">
+      <div class="field">
+        <label>City</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="field">
+        <label>State</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="field">
+        <label>Postal Code</label>
+        <input type="text" placeholder="">
+      </div>
+    </div>
+
+  </div>
+</div>
