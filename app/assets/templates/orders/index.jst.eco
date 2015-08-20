@@ -1,9 +1,21 @@
 <h1>Orders</h1>
+
+<div class="ui breadcrumb">
+  <a href="#" id="pagefirst"><i class="fa fa-angle-double-left"></i></a>
+  <a href="#"id="prevpage"><i class="fa fa-angle-left"></i></a>
+  <a href="#">Current Page</a>
+  <a href="#" id="nextpage"><i class="fa fa-angle-right"></i></a>
+  <a href="#" id="pagelast"><i class="fa fa-angle-double-right"></i></a>
+</div>
+
 <div class="ui cards four wide">
   <% for o in @order.models: %>
     <div class="ui card ">
       <div class="content">
-        <div class="header"><%= o.get('first_name') %> <%= o.get('last_name') %></div>
+        <div class="header"><%= o.get('ship_name') %></div>
+      </div>
+      <div class="content">
+        <div class="">Order #: <%= o.get('order_number')%></div>
       </div>
       <div class="content">
         <p class=""><%= o.get('city') %>, <%= o.get('state') %> <%= o.get('postal_code') %> <%= o.get('country') %></p>
@@ -13,54 +25,59 @@
   <% end %>
 </div>
 
-<div class="ui modal" id="orderinfo">
-  <i class="fa fa-times"></i>
+<div class="ui">
+  paginate
+</div>
+
+<div class="ui modal large" id="orderinfo">
+  <a href="" onclick="event.preventDefault();"><i class="fa fa-times"></i></a>
   <div class="header">
     Order Info
   </div>
-  <div class="ui form">
-
+  <form class="ui form" action="http://localhost:3000/api/edit" method="post" id="orderform">
     <div class="fields">
       <div class="field">
         <label>Order Number</label>
-        <input type="text" placeholder="Order Number">
+        <input type="text" id="order_number" placeholder="">
       </div>
       <div class="field">
-        <label>First name</label>
-        <input type="text" placeholder="First Name">
-      </div>
-      <div class="field">
-        <label>Last name</label>
-        <input type="text" placeholder="Last Name">
+        <label>Name</label>
+        <input type="text" id="ship_name" placeholder="Name">
       </div>
     </div>
 
     <div class="fields">
       <div class="field">
         <label>Address 1</label>
-        <input type="text" placeholder="">
+        <input type="text" id="address1" placeholder="">
       </div>
       <div class="field">
         <label>Address 2</label>
-        <input type="text" placeholder="">
+        <input type="text" id="address2" placeholder="">
       </div>
+      <!-- leave this here for now -->
+      <input type="hidden" id="orderId" value="">
 
     </div>
 
     <div class="fields">
       <div class="field">
         <label>City</label>
-        <input type="text" placeholder="">
+        <input type="text" id="city" placeholder="">
       </div>
       <div class="field">
         <label>State</label>
-        <input type="text" placeholder="">
+        <input type="text" id="state" placeholder="">
       </div>
       <div class="field">
         <label>Postal Code</label>
-        <input type="text" placeholder="">
+        <input type="text" id="postal_code" placeholder="">
       </div>
     </div>
 
-  </div>
+    <div id="items">
+    </div>
+
+    <input type="submit" name="name" value="Submit" class="ui button" id="ordersubmit">
+  </form>
 </div>

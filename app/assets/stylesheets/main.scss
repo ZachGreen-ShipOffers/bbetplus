@@ -2,10 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Taks just the number
+@function rem($px){
+  @return #{$px/14}rem;
+}
+
 #content {
   padding-top: 40px;
 }
 .ui.cards {
-  margin: auto !important; 
+  margin: auto !important;
 }
-#orderinfo {}
+#orderinfo {
+  margin-top: rem(-350);
+  .fa-times {
+    padding: rem(10);
+  }
+  .ui.button {
+    margin-top: rem(15);
+  }
+}
+.ui.form {
+  padding: 1.5rem;
+}
+// this is the autocomplete ul
+.ui-front {
+  z-index: 1010;
+  background-color: white;
+  width: 180px;
+  height: 200px;
+  overflow-y: scroll;
+  // these are the li's
+  .ui-menu-item {
+    list-style: none;
+  }
+  .ui-state-focus {
+    background-color: gray;
+  }
+}

@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   scope "api" do
     get 'orders' => 'orders#index'
+    get 'orders/:id' => 'orders#order'
+    put 'orders/:id' => 'orders#update_order'
+    patch 'orders/:id' => 'orders#update_order'
+    get 'items/:id' => 'orders#items'
+    put 'items/:id' => 'orders#update_item'
+    patch 'items/:id' => 'orders#update_item'
+    get 'skus/:id' => 'orders#skus'
+    post 'edit' => 'orders#edit'
 
   end
 
