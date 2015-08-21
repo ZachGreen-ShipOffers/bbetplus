@@ -8,6 +8,10 @@
   <a href="#" id="pagelast"><i class="fa fa-angle-double-right"></i></a>
 </div>
 
+<div class="ui button">
+  <a href="#/orders/new">Create New Order</a>
+</div>
+
 <div class="ui cards four wide">
   <% for o in @order.models: %>
     <div class="ui card ">

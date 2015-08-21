@@ -1,0 +1,69 @@
+<h1>New Order</h1>
+<form class="ui form" action="" method="">
+
+  <div class="fields">
+    <div class="field">
+      <label>Order Number</label>
+      <input type="text" id="order_number" placeholder="">
+    </div>
+    <div class="field">
+      <label>Name</label>
+      <input type="text" id="ship_name" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="field">
+      <label>address1</label>
+      <input type="text" id="order_number" placeholder="">
+    </div>
+    <div class="field">
+      <label>address2</label>
+      <input type="text" id="ship_name" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="field">
+      <label>city</label>
+      <input type="text" id="order_number" placeholder="">
+    </div>
+    <div class="field">
+      <label>state</label>
+      <input type="text" id="ship_name" placeholder="Name">
+    </div>
+    <div class="field">
+      <label>postal_code</label>
+      <input type="text" id="order_number" placeholder="">
+    </div>
+    <div class="field">
+      <label>country</label>
+      <input type="text" id="ship_name" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="field">
+      <label>phone</label>
+      <input type="text" id="order_number" placeholder="">
+    </div>
+    <div class="field">
+      <label>email</label>
+      <input type="text" id="ship_name" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="field">
+      <label>order_date</label>
+      <input type="text" id="order_number" placeholder="">
+    </div>
+  </div>
+  <h3>Items</h3>
+  <div id="items">
+
+  </div>
+  <button type="button" name="button" class="ui button" id="additem">Add Item</button>
+  <input type="submit" name="submit" value="Create Order" id="createorder" class="ui button">
+
+</form>

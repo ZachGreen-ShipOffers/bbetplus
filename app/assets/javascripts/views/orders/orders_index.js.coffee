@@ -58,13 +58,17 @@ class Bbetplus.Views.OrdersIndex extends Backbone.View
 
     })
     skus = new Bbetplus.Collections.Skus()
-    skus.url = "/api/skus/#{order.get('id')}.json"
+    skus.url = "/api/skus/#{order.get('clients_store_id')}.json"
     skus.fetch({
       success: (c,res,opts)->
+        console.log res
+        _.each res, ((e,i,l)->
+          aryOfSkus.push e.sku
+        )
+        $('.sku').autocomplete({
+          source: aryOfSkus
+        })
       })
-    $('.sku').autocomplete({
-      source:
-    })
     $('#orderinfo').show()
 
   closeModal: (e)->

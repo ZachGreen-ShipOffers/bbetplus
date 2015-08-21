@@ -1,6 +1,7 @@
 class Bbetplus.Routers.Orders extends Backbone.Router
   routes:
     'orders': 'index'
+    'orders/new': 'new'
 
   # initialize: ->
 
@@ -13,3 +14,7 @@ class Bbetplus.Routers.Orders extends Backbone.Router
         view = new Bbetplus.Views.OrdersIndex()
         $('#content').html(view.render(c,p).el)
       })
+
+  new: ->
+    view = new Bbetplus.Views.OrdersNew()
+    $('#content').html(view.render().el)
