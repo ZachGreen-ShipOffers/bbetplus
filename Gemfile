@@ -46,7 +46,12 @@ end
 gem 'responders', '~> 2.0'
 
 gem 'rb-readline'
-gem 'backbone-on-rails'
+
+# gem 'backbone-on-rails'
+
+gem 'ember-rails'
+gem 'ember-source'
+
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'awesome_print'
 gem 'font-awesome-rails'
