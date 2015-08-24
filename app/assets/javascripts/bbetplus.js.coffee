@@ -9,8 +9,3 @@
 #= require_tree ./routes
 #= require ./router
 #= require_self
-Bbetplus.Store = DS.Store.extend(
-  adapter: DS.RESTAdapter.create(
-    url: 'http://localhost:3000'
-  )
-)

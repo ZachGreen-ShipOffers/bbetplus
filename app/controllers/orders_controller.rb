@@ -1,37 +1,38 @@
 class OrdersController < ApplicationController
-  respond_to :json
+  # respond_to :json
 
   def index
     count = ClientsOrder.all().count()
     @orders = ClientsOrder.all().order('order_date DESC').page params[:page]
-    h = {
-      total: count,
-      total_page: (count / 50),
-      per_page: 50,
-      page: params[:page] || 1
-    }
-    @orders.push h
+    # h = {
+    #   total: count,
+    #   total_page: (count / 50),
+    #   per_page: 50,
+    #   page: params[:page] || 1
+    # }
+    # @orders.push h
 
-    respond_with @orders
+    render json: @orders
   end
 
   def update_order
-    # ap params
-    order = ClientsOrder.find params[:order][:id]
-    saved = false
-    ClientsOrder.transaction do
-      params[:order].each do |k,v|
-        insert = {}
-        insert[k.to_sym] = "#{v}"
-        order.update insert
-      end
-      saved = order.save!
-    end
-    if saved
-      respond_with status: 200
-    else
-      respond_with status: 500
-    end
+    # # ap params
+    # order = ClientsOrder.find params[:order][:id]
+    # saved = false
+    # ClientsOrder.transaction do
+    #   params[:order].each do |k,v|
+    #     insert = {}
+    #     insert[k.to_sym] = "#{v}"
+    #     order.update insert
+    #   end
+    #   saved = order.save!
+    # end
+    # if saved
+    #   respond_with status: 200
+    # else
+    #   respond_with status: 500
+    # end
+    render json: params
   end
 
   def update_item
@@ -79,7 +80,7 @@ class OrdersController < ApplicationController
       clients_order_id = #{id};
     eos
     @items = ActiveRecord::Base.connection.exec_query(items_skus, 'Items and Skus')
-    respond_with @items
+    render json:  @items
   end
 
   def skus
@@ -89,7 +90,7 @@ class OrdersController < ApplicationController
     eos
 
     @skus = ActiveRecord::Base.connection.exec_query(sku_sql, 'Grab all client skus')
-    respond_with @skus
+    render json:  @skus
   end
 
 end
