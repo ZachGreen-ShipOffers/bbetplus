@@ -15,7 +15,13 @@ Bbetplus.ClientOrderComponent = Ember.Component.extend(
       $('#orderinfo').hide()
     submitOrder: (id)->
       @order.set 'order_number', $('#order_number').val()
-      @order.save()
+      @order.set 'ship_name', $('#ship_name').val()
+      @order.set 'address1', $('#address1').val()
+      @order.set 'address2', $('#address2').val()
+      @order.set 'city', $('#city').val()
+      @order.set 'state', $('#state').val()
+      @order.set 'postal_code', $('#postal_code').val()
+      # @order.save()
   }
 
 )

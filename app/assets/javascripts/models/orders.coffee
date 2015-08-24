@@ -1,4 +1,5 @@
 Bbetplus.Order = DS.Model.extend(
+  items: hasMany('item')
   ship_name: DS.attr 'string'
   address1: DS.attr 'string'
   address2: DS.attr 'string'
