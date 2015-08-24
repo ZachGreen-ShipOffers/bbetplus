@@ -1,5 +1,16 @@
-<h3>Client Order</h3>
-{{#each orders as |o|}}
-{{o.order_number}}
-{{o.ship_name}}
-{{/each}}
+<div class="ui cards four wide">
+  {{#each orders as |o|}}
+    <div class="ui card ">
+      <div class="content">
+        <div class="header">{{o.ship_name}}</div>
+      </div>
+      <div class="content">
+        <div class="">Order #: {{o.order_number}}</div>
+      </div>
+      <div class="content">
+        <p class="">{{o.city}}, {{o.state}} {{o.postal_code}} {{o.country}}</p>
+      </div>
+      <button class="ui button edit" data-id="{{o.id}}" {{action 'edit' o}}>Edit</button>
+    </div>
+  {{/each}}
+</div>
