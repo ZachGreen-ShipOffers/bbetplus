@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
     # @orders.push h
 
     respond_with @orders.as_json(include: {clients_order_items: {include: :clients_sku}})
+    # respond_with @orders.as_json(include: {clients_order_items: {only: [:id,:quantity,:clients_order_id], include: {clients_sku: {only: [:description, :sku]} } } })
   end
 
   def update_order

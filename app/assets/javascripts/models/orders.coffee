@@ -1,5 +1,5 @@
 Bbetplus.Order = DS.Model.extend(
-  clients_order_items: DS.attr()
+  clients_order_items: DS.hasMany('items')
   ship_name: DS.attr 'string'
   address1: DS.attr 'string'
   address2: DS.attr 'string'
@@ -10,3 +10,9 @@ Bbetplus.Order = DS.Model.extend(
   postal_code: DS.attr 'string'
   clients_store_id: DS.attr 'number'
 )
+
+Bbetplus.OrderSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
+  attrs:
+    clients_order_items:
+      embedded: 'always'
+})

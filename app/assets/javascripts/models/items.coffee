@@ -1,6 +1,11 @@
-# Bbetplus.Item = DS.Model.extend(
-#   clients_order_id: DS.belongsTo('orders', {async: true})
-#   quantity: DS.attr 'string'
-#   sku: DS.attr 'string'
-#   description: DS.attr 'string'
-# )
+Bbetplus.Item = DS.Model.extend(
+  clients_order_id: DS.belongsTo('order')
+  quantity: DS.attr 'string'
+  clients_sku: DS.belongsTo('sku')
+)
+
+Bbetplus.ItemSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
+  attrs:
+    clients_sku:
+      embedded: 'always'
+})
