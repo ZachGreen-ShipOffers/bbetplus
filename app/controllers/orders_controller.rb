@@ -1,14 +1,10 @@
 class OrdersController < ApplicationController
-  # respond_to :json
+  respond_to :json
 
   def index
     count = ClientsOrder.all().count()
-    @orders = ClientsOrder.all().includes(:clients_order_items).order('order_date DESC').page params[:page]
+    @orders = ClientsOrder.all().includes(:clients_order_items => [:clients_sku]).order('order_date DESC').page params[:page]
 
-    # @orders.each do |o|
-    #   o.items = []
-    #   o.items << ClientsOrderItem.where('order_id = ?', o.id)
-    # end
     # h = {
     #   total: count,
     #   total_page: (count / 50),
@@ -17,7 +13,7 @@ class OrdersController < ApplicationController
     # }
     # @orders.push h
 
-    render json: @orders.to_json(include: :clients_order_items)
+    respond_with @orders.as_json(include: {clients_order_items: {include: :clients_sku}})
   end
 
   def update_order

@@ -1,5 +1,5 @@
 Bbetplus.Order = DS.Model.extend(
-  items: hasMany('item')
+  clients_order_items: DS.attr()
   ship_name: DS.attr 'string'
   address1: DS.attr 'string'
   address2: DS.attr 'string'
@@ -8,4 +8,5 @@ Bbetplus.Order = DS.Model.extend(
   state: DS.attr 'string'
   country: DS.attr 'string'
   postal_code: DS.attr 'string'
+  clients_store_id: DS.attr 'number'
 )

@@ -8,4 +8,6 @@
 #= require_tree ./templates
 #= require_tree ./routes
 #= require ./router
+#= require underscore
+#= require jquery-ui
 #= require_self
